@@ -9,7 +9,8 @@ void harmonic_filter(
     float fe,
     float f0,
     float tolerance,
-    int nb_harmonics
+    int nb_harmonics,
+    float alpha
 );
 
 #endif

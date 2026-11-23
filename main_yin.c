@@ -6,8 +6,8 @@
 #include "yin.h"
 
 #define FE 44100
-#define W 2048
-#define H 1024
+#define W 1024
+#define H 256
 #define TAU_MIN 44
 #define TAU_MAX 735
 
@@ -49,17 +49,7 @@ int main(int argc, char *argv[]) {
     double d[TAU_MAX + 1];
     double d_prime[TAU_MAX + 1];
 
-    char output_filename[256];
-
-    snprintf(output_filename, sizeof(output_filename),
-             "tests_snr/yin_%s.csv", strrchr(filename, '/') + 1);
-
-    char *extension = strstr(output_filename, ".wav");
-    if (extension != NULL) {
-        strcpy(extension, ".csv");
-    }
-
-    FILE *csv = fopen(output_filename, "w");
+    FILE *csv = fopen("yin_results_B.csv", "w");
 
     if (csv == NULL) {
         printf("Erreur creation CSV.\n");
